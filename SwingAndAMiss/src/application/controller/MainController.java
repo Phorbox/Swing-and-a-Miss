@@ -112,5 +112,9 @@ public class MainController {
 
     @FXML
     private Circle ball1;
+    
+    Label[] playerScores = new Label[] {p1,p2,p3,p4,p5,p6,p7,p8,p9,pTotal};
+    Label[] cpuScores = new Label[] {c1,c2,c3,c4,c5,c6,c7,c8,c9,cTotal};
+    
 
 }
