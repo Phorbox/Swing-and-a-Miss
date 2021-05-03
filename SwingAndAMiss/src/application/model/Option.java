@@ -8,6 +8,8 @@ public class Option {
 		choices = new Choice[3];
 	}
 
+	//since gameplay outcomes are determined by the batter,
+	//an outcome is genned for the batter as well as the RPS (rock paper scissors) matrix
 	public void genBatterOption() {
 		// TODO Auto-generated method stub
 		genRockPaperScissors();
@@ -15,6 +17,7 @@ public class Option {
 
 	}
 
+	//0 is rock, 1 is paper, 2 is scissors
 	public void genBatterOutcome() {
 		choices[0].genBatterRock();
 		choices[1].genBatterPaper();
@@ -22,12 +25,15 @@ public class Option {
 
 	}
 
+	//pitcher just needs RPS matrix
 	public void genPitcherOption() {
 		// TODO Auto-generated method stub
 		genRockPaperScissors();
 
 	}
 
+
+	// rock loses paper loses scissors loses rock
 	public void genRockPaperScissors() {
 		// TODO Auto-generated method stub
 		choices[0] = new Choice(Rps.ROCK, Rps.SCISSORS, Rps.PAPER);
@@ -36,6 +42,7 @@ public class Option {
 
 	}
 
+	//TODO print option to buttons in scene
 	public void printOptions() {
 		int i = 0;
 		while (printCondition(i)) {
@@ -48,6 +55,7 @@ public class Option {
 
 	}
 
+	//companion boolean method for print options
 	public boolean printCondition(int i) {
 		if (i < 3) {
 			return true;

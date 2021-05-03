@@ -11,6 +11,7 @@ public class Outcome {
 		value = newValue;
 	}
 
+	//TODO write the name to something to let the player know what happened in the play
 	public void printOutcome() {
 		System.out.print(Name+ " ");
 		System.out.println(value);
