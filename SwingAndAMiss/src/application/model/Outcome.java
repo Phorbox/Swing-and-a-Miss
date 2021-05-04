@@ -15,5 +15,5 @@ public class Outcome {
 		System.out.print(Name+ " ");
 		System.out.println(value);
 	}
-
+	
 }

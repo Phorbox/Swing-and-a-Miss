@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Choice {
-
 	Rps Name;
 	Rps Beats;
 	Rps Loses;
@@ -13,15 +12,37 @@ public class Choice {
 	public ArrayList<Outcome> resultTies;
 	public ArrayList<Outcome> resultLoses;
 
-	public Choice(Rps rock, Rps scissors, Rps paper) {
+	String pitchingName;
+
+	String battingName;
+
+	public Choice(Rps rock, Rps scissors, Rps paper, String pName, String bName) {
 		Name = rock;
 		Beats = scissors;
 		Loses = paper;
 		resultBeats = new ArrayList<Outcome>();
 		resultTies = new ArrayList<Outcome>();
 		resultLoses = new ArrayList<Outcome>();
+		pitchingName = pName;
+		battingName = bName;
+		
 	}
 
+	public String getPitchingName() {
+		return pitchingName;
+	}
+	
+	public String getBattingName() {
+		return battingName;
+	}
+	
+	public void setPitchingName(String pitchingName) {
+		this.pitchingName = pitchingName;
+	}
+	
+	public void setBattingName(String battingName) {
+		this.battingName = battingName;
+	}
 	public void genBatterRock() {
 		// ex: fast swing
 		Outcome tempResult;
