@@ -4,5 +4,5 @@ public enum Umpire {
 	FOUL,
 	STRIKE,
 	BALL,
-	BASE
+	BASE,
 }

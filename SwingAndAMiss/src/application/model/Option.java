@@ -6,6 +6,7 @@ public class Option {
 
 	public Option() {
 		choices = new Choice[3];
+		genBatterOption();
 	}
 
 	//since gameplay outcomes are determined by the batter,
@@ -36,9 +37,9 @@ public class Option {
 	// rock loses paper loses scissors loses rock
 	public void genRockPaperScissors() {
 		// TODO Auto-generated method stub
-		choices[0] = new Choice(Rps.ROCK, Rps.SCISSORS, Rps.PAPER);
-		choices[1] = new Choice(Rps.PAPER, Rps.ROCK, Rps.SCISSORS);
-		choices[2] = new Choice(Rps.SCISSORS, Rps.PAPER, Rps.ROCK);
+		choices[0] = new Choice(Rps.ROCK, Rps.SCISSORS, Rps.PAPER, "Fastball","Power Swing");
+		choices[1] = new Choice(Rps.PAPER, Rps.ROCK, Rps.SCISSORS,"Screwball","Wild Swing");
+		choices[2] = new Choice(Rps.SCISSORS, Rps.PAPER, Rps.ROCK,"Curveball","Thoughtful Swing");
 
 	}
 
@@ -53,6 +54,9 @@ public class Option {
 		}
 		System.out.println("\n");
 
+	}
+	public Choice getChoice(int i) {
+		return choices[i];
 	}
 
 	//companion boolean method for print options
