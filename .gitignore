@@ -23,10 +23,6 @@
 hs_err_pid*
 # Java related
 target/**
-*.jar
-*.war
-*.ear
-*.class
 
 # eclipse specific
 *.pydevproject

@@ -1,8 +1,8 @@
 package application.model;
 
 public enum Umpire {
-	FOUL,
-	STRIKE,
-	BALL,
-	BASE,
+    FOUL,
+    STRIKE,
+    BALL,
+    BASE,
 }

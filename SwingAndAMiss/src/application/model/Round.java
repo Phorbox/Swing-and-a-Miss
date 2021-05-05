@@ -1,24 +1,24 @@
 package application.model;
 
 public class Round {
-	Choice batterChoice;
-	Choice pitcherChoice;
-	Outcome roundOutcome;
+    Choice batterChoice;
+    Choice pitcherChoice;
+    Outcome roundOutcome;
 
-	public Round(Choice newBatterChoice, Choice newPitcherChoice) {
-		batterChoice = newBatterChoice;
-		pitcherChoice = newPitcherChoice;
+    public Round(Choice newBatterChoice, Choice newPitcherChoice) {
+        batterChoice = newBatterChoice;
+        pitcherChoice = newPitcherChoice;
 
-	}
+    }
 
-	public Outcome playRound() {
-		roundOutcome = batterChoice.compareChoice(pitcherChoice);
-		return roundOutcome;
-	}
+    public Outcome playRound() {
+        roundOutcome = batterChoice.compareChoice(pitcherChoice);
+        return roundOutcome;
+    }
 
-	public void printRound() {
-		batterChoice.printChoice();
-		pitcherChoice.printChoice();
-		roundOutcome.printOutcome();
-	}
+    public void printRound() {
+        batterChoice.printChoice();
+        pitcherChoice.printChoice();
+        roundOutcome.printOutcome();
+    }
 }

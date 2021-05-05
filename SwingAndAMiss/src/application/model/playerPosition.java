@@ -1,6 +1,6 @@
 package application.model;
 
 public enum playerPosition {
-	TOP, 
-	BOTTOM
+    TOP,
+    BOTTOM
 }
