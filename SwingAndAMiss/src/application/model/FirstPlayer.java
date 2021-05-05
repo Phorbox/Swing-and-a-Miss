@@ -2,12 +2,12 @@ package application.model;
 
 import java.util.Random;
 
-public class firstPlayer {
+public class FirstPlayer {
 
 	Coin coinToss;
 	Players firstToBat;
 
-	public firstPlayer() {
+	public FirstPlayer() {
 		this.coinToss = Coin.HEADS;
 		this.firstToBat = Players.CPU;
 	}

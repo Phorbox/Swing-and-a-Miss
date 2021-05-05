@@ -166,7 +166,7 @@ public class GameState {
 		}
 	}
 
-	public void updateGameStateScore(Inning inningInfo, int inningIndex, currentBatter whoIsBatting) {
+	public void updateGameStateScore(Inning inningInfo, int inningIndex, CurrentBatter whoIsBatting) {
 		if (isTop(whoIsBatting)) {
 			updateTopPoints(inningInfo, inningIndex, whoIsBatting);
 			return;
@@ -175,7 +175,7 @@ public class GameState {
 
 	}
 
-	private void updateTopPoints(Inning inningInfo, int inningIndex, currentBatter whoIsBatting) {
+	private void updateTopPoints(Inning inningInfo, int inningIndex, CurrentBatter whoIsBatting) {
 		updateTopScore(inningInfo, inningIndex);
 		updateTopTotal();
 
@@ -196,7 +196,7 @@ public class GameState {
 		topScore[inningIndex] = inningInfo.points;
 	}
 
-	private void updateBottomPoints(Inning inningInfo, int inningIndex, currentBatter whoIsBatting) {
+	private void updateBottomPoints(Inning inningInfo, int inningIndex, CurrentBatter whoIsBatting) {
 		updateBottomScore(inningInfo, inningIndex);
 		updateBottomTotal();
 
@@ -217,7 +217,7 @@ public class GameState {
 
 	}
 
-	private boolean isTop(currentBatter whoIsBatting) {
+	private boolean isTop(CurrentBatter whoIsBatting) {
 		return whoIsBatting.Top == whoIsBatting.Batter;
 	}
 

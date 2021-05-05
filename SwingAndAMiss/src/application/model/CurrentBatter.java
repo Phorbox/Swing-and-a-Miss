@@ -1,11 +1,11 @@
 package application.model;
 
-public class currentBatter {
+public class CurrentBatter {
 	Players Batter;
 	playerPosition labelPosition;
 	Players Top;
 
-	public currentBatter(firstPlayer firstToBat) {
+	public CurrentBatter(FirstPlayer firstToBat) {
 		Batter = firstToBat.firstToBat;
 		Top = firstToBat.firstToBat;
 	}

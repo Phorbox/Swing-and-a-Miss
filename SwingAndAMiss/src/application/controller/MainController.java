@@ -409,8 +409,9 @@ public class MainController {
 	
 	@FXML
     void replayGame(ActionEvent event) {
-    	gameEndScreen.setVisible(false);
-		initialize();
+//    	gameEndScreen.setVisible(false);
+//		initialize();
+		System.exit(0);
     }
 
 	private void startGame() {
@@ -471,7 +472,6 @@ public class MainController {
 	}
 
 	private void changeField() {
-		System.out.println("Is the PC batting:" + newGame.isPlayerBatting());
 		if (newGame.isPlayerBatting()) {
 			changeToBatter();
 			return;
@@ -638,9 +638,10 @@ public class MainController {
 	private void homeText() {
 		if (newGame.isPlayerBatting()) {
 
-			HOME.setText(newGame.Player1Selection.getBattingName());
+			HOME.setText(newGame.CPUSelection.getPitchingName());
+			return;
 		}
-		HOME.setText(newGame.Player1Selection.getPitchingName());
+		HOME.setText(newGame.CPUSelection.getBattingName());
 
 	}
 

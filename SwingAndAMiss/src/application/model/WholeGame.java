@@ -18,8 +18,8 @@ public class WholeGame {
 
 	public int currentInningNumber;
 	public int totalInnings;
-	public firstPlayer firstToBat;
-	private currentBatter whoIsBatting;
+	public FirstPlayer firstToBat;
+	private CurrentBatter whoIsBatting;
 	Outcome currentOutcome;
 
 	public WholeGame(int newTotalInnings) {
@@ -35,14 +35,14 @@ public class WholeGame {
 		CPUSelection = null;
 
 		totalInnings = newTotalInnings;
-		firstToBat = new firstPlayer();
-		whoIsBatting = new currentBatter(firstToBat);
+		firstToBat = new FirstPlayer();
+		whoIsBatting = new CurrentBatter(firstToBat);
 		currentOutcome = null;
 	}
 
 	public void playBall() {
 		firstToBat.getFirstToBat();
-		whoIsBatting = new currentBatter(firstToBat);
+		whoIsBatting = new CurrentBatter(firstToBat);
 
 		theGameState.SwitchLabels(Player1, isPlayerBatting());
 	}
@@ -169,7 +169,6 @@ public class WholeGame {
 	}
 
 	public int comparePoints() {
-		// TODO Auto-generated method stub
 		Players topPlayer = whoIsBatting.Top;
 		if (topPlayer == Players.PLAYER1) {
 			return theGameState.topTotal - theGameState.botTotal;

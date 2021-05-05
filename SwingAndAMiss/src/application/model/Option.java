@@ -37,10 +37,9 @@ public class Option {
 	// rock loses paper loses scissors loses rock
 	public void genRockPaperScissors() {
 		// TODO Auto-generated method stub
-		choices[0] = new Choice(Rps.ROCK, Rps.SCISSORS, Rps.PAPER, "Fastball","Power Swing");
-		choices[1] = new Choice(Rps.PAPER, Rps.ROCK, Rps.SCISSORS,"Screwball","Wild Swing");
-		choices[2] = new Choice(Rps.SCISSORS, Rps.PAPER, Rps.ROCK,"Curveball","Thoughtful Swing");
-
+		choices[0] = new Choice(Rps.ROCK, Rps.SCISSORS, Rps.PAPER, "Screwball","Power Swing");
+		choices[1] = new Choice(Rps.PAPER, Rps.ROCK, Rps.SCISSORS,"Curveball","Wild Swing");
+		choices[2] = new Choice(Rps.SCISSORS, Rps.PAPER, Rps.ROCK,"Fastball","Thoughtful Swing");
 	}
 
 
