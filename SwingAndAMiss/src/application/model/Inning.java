@@ -1,7 +1,5 @@
 package application.model;
 
-import java.util.Random;
-import java.util.Scanner;
 
 public class Inning {
 	int outs;
@@ -39,26 +37,29 @@ public class Inning {
 		
 		switch (name) {
 			case STRIKE:
-			
-			incrementStrike(strength);
+//				System.out.println("Strike");
+				incrementStrike(strength);
 			break;
-			case FOUL:
 			
+			case FOUL:
+//			System.out.println("Foul");
 			incrementFoul(strength);
 			break;
-			case BASE:
 			
+			case BASE:
+//				System.out.println("Base");
 			increaseBase(strength);
 			break;
-			case BALL:
 			
+			case BALL:	
+//				System.out.println("ball");
 			incrementBall(strength);
 			break;
 			default:
 			// Java code
 			break;
 		}
-		printInning();
+//		printInning();
 	}
 	
 	//4 balls will give the batter a base, 4 balls will reset balls and strikes
@@ -109,8 +110,8 @@ public class Inning {
 	
 	//new batter is called by base, strike, and ball outcomes to reset strikes and balls
 	private void newBatter() {
-		strikes = 0;
-		balls = 0;
+		this.strikes = 0;
+		this.balls = 0;
 		
 	}
 

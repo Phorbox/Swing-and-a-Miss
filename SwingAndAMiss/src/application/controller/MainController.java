@@ -399,41 +399,38 @@ public class MainController {
 
 		gameSetUp();
 		newGame.makeNewInning();
-		nextButton();
+//		nextButton();
 
 	}
 
-
 	private void nextButton() {
-		if (selected) {
-			chooseYourOption();
-			homeText();
-			newGame.determineOutcomeCall();
-			awayText();
-			copyGameState();
-			
+		chooseYourOption();
+		homeText();
+		newGame.determineOutcomeCall();
+		awayText();
 
-		}
 		if (newGame.gameInningTest()) {
 			newGame.makeNewInning();
 			newGame.switchSides();
 			changeField();
-			copyGameState();
 			newGame.currentInningNumber++;
 		}
 		if (newGame.gameEndTest()) {
-			System.out.println("true");	
-			//			endGame()
+			System.out.println("endTest:true");
+			// endGame()
 		}
+
+		copyGameState();
 	}
 
 	private void changeField() {
+		System.out.println("Is the PC batting:" + newGame.isPlayerBatting());
 		if (newGame.isPlayerBatting()) {
 			changeToBatter();
 			return;
 		}
 		changeToPitcher();
-		
+
 	}
 
 	private void awayText() {
@@ -447,41 +444,41 @@ public class MainController {
 		copyOuts();
 		copyBalls();
 		copyStrikes();
+		setActionButtonLabels();
 	}
 
 	private void copyScore() {
 		copyTopScore();
 		copyBottomScore();
-		
+
 	}
 
 	private void copyTopScore() {
 		int j = newGame.currentInningNumber;
-		
+
 		int temp = newGame.getUpperScore(j);
-		System.out.println("score"+temp);
+//		System.out.println("score"+temp);
+
 		playerScores[j].setText(Integer.toString(temp));
-	
+
 		temp = newGame.getUpperTotal();
-		System.out.println("total"+temp);
+//		System.out.println("total"+temp);
 		pTotal.setText(Integer.toString(temp));
-		
-		
+
 	}
-	
+
 	private void copyBottomScore() {
 		int j = newGame.currentInningNumber;
-		System.out.println(j);
+//		System.out.println(j);
 		int temp = newGame.getLowerScore(j);
-		
-		playerScores[j].setText(Integer.toString(temp));
-		System.out.println(temp);
+
+		cpuScores[j].setText(Integer.toString(temp));
+//		System.out.println(temp);
 
 		temp = newGame.getLowerTotal();
-		pTotal.setText(Integer.toString(temp));
-		
-	}
+		cTotal.setText(Integer.toString(temp));
 
+	}
 
 	private void copyBases() {
 		int i;
@@ -490,47 +487,37 @@ public class MainController {
 			for (i = 0; i < 3; i++) {
 				setBaseRunners(i, batterBasesArray, j[i + 1]);
 			}
-		}else {
+		} else {
 			for (i = 0; i < 3; i++) {
 				setBaseRunners(i, pitcherBasesArray, j[i + 1]);
 			}
 		}
-		
 
 	}
 
-	private void setBaseRunners(int i, Group[] batterBasesArray2, boolean b) {
-		batterBasesArray2[i].setVisible(b);
+	private void setBaseRunners(int i, Group[] basesArray, boolean b) {
+		basesArray[i].setVisible(b);
 
 	}
 
 	private void copyStrikes() {
-		int i;
-		int j = newGame.getStrikes();
-		for (i = 0; i < j; i++) {
-			turnlightOn(i, strikeLightsArray);
 
-		}
+		int j = newGame.getStrikes();
+
+		turnlightOn(j, strikeLightsArray);
 
 	}
 
 	private void copyBalls() {
-		int i;
 		int j = newGame.getBalls();
-		for (i = 0; i < j; i++) {
-			turnlightOn(i, ballsLightsArray);
 
-		}
+		turnlightOn(j, ballsLightsArray);
 
 	}
 
 	private void copyOuts() {
-		int i;
 		int j = newGame.getOuts();
-		for (i = 0; i < j; i++) {
-			turnlightOn(i, outLightsArray);
-
-		}
+		turnlightOn(j, outLightsArray);
 
 	}
 
@@ -588,7 +575,6 @@ public class MainController {
 	@FXML
 	void executePaper(ActionEvent event) {
 		rpsIndex = 1;
-		selected = true;
 
 		nextButton();
 	}
@@ -605,7 +591,6 @@ public class MainController {
 	@FXML
 	void executeRock(ActionEvent event) {
 		rpsIndex = 0;
-		selected = true;
 
 		nextButton();
 	}
@@ -613,17 +598,27 @@ public class MainController {
 	@FXML
 	void executeScissors(ActionEvent event) {
 		rpsIndex = 2;
-		selected = true;
+
 		nextButton();
 
 	}
 
 	void turnlightOn(int index, Circle[] lightArray) {
-		(lightArray[index]).setFill(lightOn);
+		lightOff(lightArray);
+		int i;
+		for (i = 0; i < index; i++) {
+
+			(lightArray[i]).setFill(lightOn);
+		}
+
 	}
 
-	void lightOff(int index, Circle[] lightArray) {
-		(lightArray[index]).setFill(lightOff);
+	void lightOff(Circle[] lightArray) {
+		int i;
+		for (i = 0; i < lightArray.length; i++) {
+
+			(lightArray[i]).setFill(lightOff);
+		}
 	}
 
 	void getLightColors() {
@@ -681,58 +676,30 @@ public class MainController {
 		dropCurtain();
 		pitcherPOV.setVisible(false);
 		batterPOV.setVisible(true);
-		raiseCurtain();
 		clearBases(batterBasesArray);
 		clearBases(pitcherBasesArray);
+		raiseCurtain();
 		clearLights();
 
 	}
-	
+
 	void changeToPitcher() {
 		dropCurtain();
 		batterPOV.setVisible(false);
 		pitcherPOV.setVisible(true);
-		raiseCurtain();
 		clearBases(batterBasesArray);
 		clearBases(pitcherBasesArray);
+		raiseCurtain();
 		clearLights();
 
 	}
 
 	private void clearLights() {
-		allLightsOn();
-		allLightsCascadeOff();
+		lightOff(outLightsArray);
 
-	}
+		lightOff(strikeLightsArray);
 
-	private void allLightsCascadeOff() {
-		int i;
-//		long waitTime = 2500 / 7;
-		for (i = 1; i >= 0; i--) {
-
-			lightOff(i, outLightsArray);
-		}
-		for (i = 0; i < 2; i++) {
-
-			lightOff(i, strikeLightsArray);
-		}
-		for (i = 2; i >= 0; i--) {
-			lightOff(i, ballsLightsArray);
-		}
-
-	}
-
-	private void allLightsOn() {
-		int i;
-		for (i = 0; i < 2; i++) {
-			turnlightOn(i, outLightsArray);
-		}
-		for (i = 0; i < 2; i++) {
-			turnlightOn(i, strikeLightsArray);
-		}
-		for (i = 0; i < 3; i++) {
-			turnlightOn(i, ballsLightsArray);
-		}
+		lightOff(ballsLightsArray);
 
 	}
 

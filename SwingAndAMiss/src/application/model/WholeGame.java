@@ -44,7 +44,7 @@ public class WholeGame {
 	public void playBall() {
 		firstToBat.getFirstToBat();
 		whoIsBatting = new currentBatter(firstToBat);
-		System.out.println(whoIsBatting.toString());
+//		System.out.println(whoIsBatting.toString());
 		theGameState.SwitchLabels(Player1, isPlayerBatting());
 	}
 	
@@ -102,8 +102,8 @@ public class WholeGame {
 		currentInning.applyOutcome(currentOutcome);
 		theGameState.updateGameStatePlaces(currentInning);
 		theGameState.updateGameStateScore(currentInning, currentInningNumber, whoIsBatting);
-		System.out.println("upperScore"+theGameState.getUpperScore(currentInningNumber));
-		System.out.println("lowerScore"+theGameState.getLowerScore(currentInningNumber));
+//		System.out.println("upperScore"+theGameState.getUpperScore(currentInningNumber));
+//		System.out.println("lowerScore"+theGameState.getLowerScore(currentInningNumber));
 	}
 
 	public void makeNewInning() {
@@ -125,7 +125,7 @@ public class WholeGame {
 	}
 	
 	public boolean gameEndTest() {
-		return currentInningNumber < totalInnings;
+		return currentInningNumber >= totalInnings;
 	}
 	public boolean gameContinueTest() {
 		return currentInningNumber < totalInnings;
@@ -151,6 +151,7 @@ public class WholeGame {
 
 
 	public String[] getActionLabels() {
+		theGameState.SwitchLabels(Player1,isPlayerBatting());
 		return theGameState.buttonLabels;
 	}
 	
@@ -213,6 +214,8 @@ public class WholeGame {
 
 	public void switchSides() {
 		whoIsBatting.changeSides();
+//		System.out.println(whoIsBatting.toString());
+//		Player1.printOptions();
 	}
 	
 }

@@ -27,12 +27,13 @@ public class currentBatter {
 	}
 
 	public void changeSides() {
-		this.changePlayers();
+		this.changeBatter();
 	}
 
-	private void changePlayers() {
+	private void changeBatter() {
 		if (this.Batter == Players.PLAYER1) {
 			this.Batter = Players.CPU;
+			return;
 		}
 		if (this.Batter == Players.CPU) {
 			this.Batter = Players.PLAYER1;
