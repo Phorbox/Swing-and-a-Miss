@@ -1,7 +1,7 @@
 # SwingAndaMiss
 A baseball game with rock-paper-scissors to determine play outcomes.
 
-Clone the repo as an eclipse project to run. Make sure that your build path includes javafx. 
+Download SwingAndAMiss.jar, run the game and have fun.
 
 Play baseball by way of rock-paper-scissors.
 The RPS triangle as follows:
