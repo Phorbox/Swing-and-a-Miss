@@ -37,29 +37,29 @@ public class Inning {
 		
 		switch (name) {
 			case STRIKE:
-//				System.out.println("Strike");
+
 				incrementStrike(strength);
 			break;
 			
 			case FOUL:
-//			System.out.println("Foul");
+
 			incrementFoul(strength);
 			break;
 			
 			case BASE:
-//				System.out.println("Base");
+
 			increaseBase(strength);
 			break;
 			
 			case BALL:	
-//				System.out.println("ball");
+
 			incrementBall(strength);
 			break;
 			default:
-			// Java code
+
 			break;
 		}
-//		printInning();
+
 	}
 	
 	//4 balls will give the batter a base, 4 balls will reset balls and strikes

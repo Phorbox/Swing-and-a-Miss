@@ -40,78 +40,28 @@ public class WholeGame {
 		currentOutcome = null;
 	}
 
-	
 	public void playBall() {
 		firstToBat.getFirstToBat();
 		whoIsBatting = new currentBatter(firstToBat);
-//		System.out.println(whoIsBatting.toString());
+
 		theGameState.SwitchLabels(Player1, isPlayerBatting());
 	}
-	
-	
-//	public void gamesLoop() {
-//		// getFirstPlayer
-////		firstToBat.getFirstToBat();
-////		whoIsBatting = new currentBatter(firstToBat);
-////		// while game
-////		theGameState.SwitchLabels(Player1, isPlayerBatting());
-//		while (gameEndTest()) {
-//			while (currentInning.checkInningEnd()) {
-//
-//				
-//			
-//			// print options
-//
-//			// while inning
-//				// getOptionInt
-//				determineOutcome(Player1Selection, CPUSelection);
-//
-//				// updateGameState;
-//				currentInning.applyOutcome(currentOutcome);
-//				theGameState.updateGameStatePlaces(currentInning);
-//				theGameState.updateGameStateScore(currentInning, currentInningNumber, whoIsBatting);
-//				// printState;
-//			}
-//
-//			whoIsBatting.changeSides();
-//			theGameState.SwitchLabels(Player1, isPlayerBatting());
-//
-//			currentInning = new Inning();
-//			while (currentInning.checkInningEnd()) {
-//				// getOptionInt
-//				
-//				determineOutcome(Player1Selection, CPUSelection);
-//
-//				// updateGameState;
-//				currentInning.applyOutcome(currentOutcome);
-//				theGameState.updateGameStatePlaces(currentInning);
-//				theGameState.updateGameStateScore(currentInning, currentInningNumber, whoIsBatting);
-//				// printState;
-//			}
-//
-//			theGameState.setToNewInning();
-//
-//			whoIsBatting.changeSides();
-//			theGameState.SwitchLabels(Player1, isPlayerBatting());
-//			currentInningNumber++;
-//
-//		}
-//}
+
 	public void determineOutcomeCall() {
 		determineOutcome(Player1Selection, CPUSelection);
 		currentInning.applyOutcome(currentOutcome);
 		theGameState.updateGameStatePlaces(currentInning);
 		theGameState.updateGameStateScore(currentInning, currentInningNumber, whoIsBatting);
-//		System.out.println("upperScore"+theGameState.getUpperScore(currentInningNumber));
-//		System.out.println("lowerScore"+theGameState.getLowerScore(currentInningNumber));
+
 	}
 
 	public void makeNewInning() {
 		currentInning = new Inning();
 	}
-	public boolean gameInningTest(){
+
+	public boolean gameInningTest() {
 		return currentInning.checkInningEnd();
-	
+
 	}
 
 	public boolean isPlayerBatting() {
@@ -123,10 +73,15 @@ public class WholeGame {
 		CPUSelection = CPU.getChoice(comSelection());
 
 	}
-	
+
 	public boolean gameEndTest() {
-		return currentInningNumber >= totalInnings;
+		return (currentInningNumber >= totalInnings) && (isTopofInning());
 	}
+
+	private boolean isTopofInning() {
+		return whoIsBatting.Batter == whoIsBatting.Top;
+	}
+
 	public boolean gameContinueTest() {
 		return currentInningNumber < totalInnings;
 	}
@@ -149,14 +104,12 @@ public class WholeGame {
 
 	}
 
-
 	public String[] getActionLabels() {
-		theGameState.SwitchLabels(Player1,isPlayerBatting());
+		theGameState.SwitchLabels(Player1, isPlayerBatting());
 		return theGameState.buttonLabels;
 	}
-	
 
-	public String getOutcomeName(){
+	public String getOutcomeName() {
 		Umpire name = currentOutcome.Name;
 		switch (name) {
 		case STRIKE:
@@ -175,7 +128,6 @@ public class WholeGame {
 		}
 	}
 
-
 	public int getOuts() {
 		int outReturn = currentInning.outs;
 		if (outReturn >= 3) {
@@ -184,38 +136,61 @@ public class WholeGame {
 		return outReturn;
 	}
 
-
 	public int getBalls() {
 		return currentInning.balls;
 	}
-
 
 	public int getStrikes() {
 		return currentInning.strikes;
 	}
 
-
 	public boolean[] getBases() {
 		return currentInning.Bases;
 	}
-	public int getUpperScore(int i){
+
+	public int getUpperScore(int i) {
 		return theGameState.getUpperScore(i);
 	}
-	public int getLowerScore(int i){
+
+	public int getLowerScore(int i) {
 		return theGameState.getLowerScore(i);
 	}
-	public int getUpperTotal(){
+
+	public int getUpperTotal() {
 		return theGameState.getTopTotalScore();
 	}
-	public int getLowerTotal(){
+
+	public int getLowerTotal() {
 		return theGameState.getBottomTotal();
 	}
 
-
 	public void switchSides() {
 		whoIsBatting.changeSides();
-//		System.out.println(whoIsBatting.toString());
-//		Player1.printOptions();
 	}
-	
+
+	public int comparePoints() {
+		// TODO Auto-generated method stub
+		Players topPlayer = whoIsBatting.Top;
+		if (topPlayer == Players.PLAYER1) {
+			return theGameState.topTotal - theGameState.botTotal;
+		}
+		if (topPlayer == Players.CPU) {
+			return theGameState.botTotal - theGameState.topTotal;
+		}
+		return 0;
+	}
+
+	public void incrementInning() {
+		boolean inningCondition = isTopofInning();
+		if (inningCondition) {
+			currentInningNumber++;
+		}
+		
+	}
+
+	public boolean playerIsNotTopPlayer() {
+		// TODO Auto-generated method stub
+		return whoIsBatting.Top != Players.PLAYER1;
+	}
+
 }

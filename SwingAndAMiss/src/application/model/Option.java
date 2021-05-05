@@ -10,7 +10,7 @@ public class Option {
 	}
 
 	//since gameplay outcomes are determined by the batter,
-	//an outcome is genned for the batter as well as the RPS (rock paper scissors) matrix
+	//an outcome is generated for the batter as well as the RPS (rock paper scissors) matrix
 	public void genBatterOption() {
 		// TODO Auto-generated method stub
 		genRockPaperScissors();
@@ -43,7 +43,7 @@ public class Option {
 
 	}
 
-	//TODO print option to buttons in scene
+
 	public void printOptions() {
 		int i = 0;
 		while (printCondition(i)) {

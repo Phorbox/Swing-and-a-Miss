@@ -167,7 +167,6 @@ public class GameState {
 	}
 
 	public void updateGameStateScore(Inning inningInfo, int inningIndex, currentBatter whoIsBatting) {
-		System.out.println("is top player batting?"+(isTop(whoIsBatting)));
 		if (isTop(whoIsBatting)) {
 			updateTopPoints(inningInfo, inningIndex, whoIsBatting);
 			return;
@@ -186,7 +185,7 @@ public class GameState {
 		int i;
 		topTotal = 0;
 		for (i = 0; i < 9; i++) {
-			topTotal+= topScore[i];
+			topTotal += topScore[i];
 
 		}
 
@@ -207,7 +206,7 @@ public class GameState {
 		int i;
 		botTotal = 0;
 		for (i = 0; i < 9; i++) {
-			botTotal+= botScore[i];
+			botTotal += botScore[i];
 
 		}
 
@@ -225,18 +224,18 @@ public class GameState {
 	public void SwitchLabels(Option player1, boolean isPlayerBatting) {
 		int i = 0;
 		// if player is batting
-		
+
 		if (isPlayerBatting) {
 			for (i = 0; i < 3; i++) {
 				buttonLabels[i] = player1.getChoice(i).battingName;
-//				System.out.println(buttonLabels[i]); 
+
 			}
 			return;
 
 		}
 		for (i = 0; i < 3; i++) {
 			buttonLabels[i] = player1.getChoice(i).pitchingName;
-//			System.out.println(buttonLabels[i]); 
+
 		}
 
 	}

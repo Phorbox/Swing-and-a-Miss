@@ -283,16 +283,47 @@
 				<RowConstraints maxHeight="788.0" minHeight="10.0" prefHeight="297.0" vgrow="SOMETIMES" />
 				<RowConstraints maxHeight="639.0" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES" />
 				<RowConstraints maxHeight="316.0" minHeight="4.0" prefHeight="297.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="316.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
 				<Button fx:id="buttonTop" mnemonicParsing="false" onAction="#executeRock" prefHeight="300.0" prefWidth="200.0" text="Button" />
 				<Button fx:id="buttonMiddle" mnemonicParsing="false" onAction="#executePaper" prefHeight="300.0" prefWidth="200.0" text="Button" GridPane.rowIndex="1" />
 				<Button fx:id="buttonBottom" mnemonicParsing="false" onAction="#executeScissors" prefHeight="300.0" prefWidth="200.0" text="Button" GridPane.rowIndex="2" />
-            <Button fx:id="choiceConfirm" mnemonicParsing="false" onAction="#executeRock" prefHeight="125.0" prefWidth="200.0" text="Button" GridPane.rowIndex="3" />
 			</children>
 		</GridPane>
 		<Rectangle fx:id="sceneCurtain" arcHeight="5.0" arcWidth="5.0" fill="#650a0a" height="900.0" stroke="#66666600" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="1609.0" />
+      <Group fx:id="gameEndScreen" visible="false">
+         <children>
+            <Rectangle fx:id="endGameBackDrop" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="900.0" stroke="BLACK" strokeType="INSIDE" width="1600.0" />
+            <Group layoutX="600.0" layoutY="300.0">
+               <children>
+                  <Label layoutY="-50.0" text="You">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="winLose" layoutY="50.0" text="WinLose">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group layoutX="550.0" layoutY="500.0">
+               <children>
+                  <Label text="Play Again?">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="replayButton" layoutY="150.0" mnemonicParsing="false" onAction="#replayGame" prefHeight="100.0" prefWidth="500.0" text="Yes">
+                     <font>
+                        <Font name="System Bold" size="96.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Group>
+         </children>
+      </Group>
 		<Group fx:id="scoreBoard" layoutX="2.0" layoutY="2.0">
 			<children>
 				<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b266e" height="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="1400.0" />
@@ -577,7 +608,7 @@
 						</Group>
 						<Group layoutX="-75.0">
 							<children>
-								<Label fx:id="pLabel" prefHeight="30.0" prefWidth="75.0" text="P1U" textFill="WHITE" textOverrun="CLIP" translateY="13.0">
+								<Label fx:id="pLabel" prefHeight="30.0" prefWidth="75.0" text="P1" textFill="WHITE" textOverrun="CLIP" translateY="13.0">
 									<font>
 										<Font size="38.0" />
 									</font>
@@ -674,7 +705,7 @@
 								<Group layoutX="390.0" layoutY="220.0">
 									<children>
 										<Rectangle arcHeight="5.0" arcWidth="5.0" height="70.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
-										<Label fx:id="finalCheckInning" prefHeight="86.0" prefWidth="47.0" text="9" textFill="#dddddd">
+										<Label fx:id="finalCheckInning" prefHeight="86.0" prefWidth="47.0" text="1" textFill="#dddddd">
 											<font>
 												<Font size="59.0" />
 											</font>
