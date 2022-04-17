@@ -434,7 +434,7 @@
         </GridPane>
         <Rectangle fx:id="sceneCurtain" arcHeight="5.0" arcWidth="5.0" fill="#650a0a" height="900.0" stroke="#66666600"
                    strokeType="INSIDE" strokeWidth="3.0" visible="false" width="1609.0"/>
-        <Group fx:id="gameEndScreen">
+        <Group fx:id="gameEndScreen" visible="false">
             <children>
                 <Rectangle fx:id="endGameBackDrop" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="900.0"
                            stroke="BLACK" strokeType="INSIDE" width="1600.0"/>
@@ -466,7 +466,7 @@
                             </font>
                         </Button>
                     </children>
-                </Group>
+				</Group>
             </children>
         </Group>
         <Group fx:id="scoreBoard" layoutX="2.0" layoutY="2.0">
